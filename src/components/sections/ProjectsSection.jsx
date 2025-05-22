@@ -173,9 +173,9 @@ const ProjectsSection = () => {
           variants={titleVariants}
           className="px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium inline-block mb-5 shadow-sm shadow-primary/5 border border-primary/10"
         >
-          My Portfolio
+          My Portfolio | <span className="text-primary">🎉</span> 
         </motion.span>
-
+        <br />
         <motion.h2
           variants={titleVariants}
           className="text-3xl md:text-4xl font-bold mb-8 relative inline-block"
@@ -298,12 +298,13 @@ const ProjectsSection = () => {
 
               <div className="h-52 bg-muted flex items-center justify-center group overflow-hidden relative">
                 {project ? (
-                  <div className="relative w-full h-full overflow-hidden">
+                  <div className="relative w-full h-full overflow-hidden aspect-[16/9]">
                     <motion.img
                       src={project.image}
                       alt={project.name}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out"
                       whileHover={{ scale: 1.1 }}
+                      loading="lazy"
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = project.image || `https://placehold.co/600x400/3a86ff/FFFFFF?text=${encodeURIComponent(project.name)}`;
